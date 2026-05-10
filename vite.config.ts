@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => ({
     /** Dev: `/api/*` → Node on 3001 (avoids browser CORS; backend should still use `cors()` for direct URLs). */
     proxy: {
       "/api": {
-        target: "http://localhost:3001",
+        target: "https://backend-v2-cwus.onrender.com",
         changeOrigin: true,
       },
     },
