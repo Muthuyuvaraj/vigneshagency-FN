@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 210 11% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 11% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 11% 15%;
+
+    --primary: 152 60% 38%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 210 11% 15%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 14% 50%;
+
+    --accent: 152 40% 94%;
+    --accent-foreground: 152 60% 28%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 20% 90%;
+    --input: 214 20% 90%;
+    --ring: 152 60% 38%;
+
+    --radius: 0.75rem;
+
+    --success: 152 60% 38%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --info: 210 100% 50%;
+    --info-foreground: 0 0% 100%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 152 60% 38%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 152 40% 94%;
+    --sidebar-accent-foreground: 152 60% 28%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 152 60% 38%;
+  }
+
+  .dark {
+    --background: 210 11% 10%;
+    --foreground: 210 20% 96%;
+
+    --card: 210 11% 14%;
+    --card-foreground: 210 20% 96%;
+
+    --popover: 210 11% 14%;
+    --popover-foreground: 210 20% 96%;
+
+    --primary: 152 55% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 11% 18%;
+    --secondary-foreground: 210 20% 96%;
+
+    --muted: 210 11% 18%;
+    --muted-foreground: 215 14% 60%;
+
+    --accent: 152 30% 18%;
+    --accent-foreground: 152 55% 70%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 20% 96%;
+
+    --border: 210 11% 20%;
+    --input: 210 11% 20%;
+    --ring: 152 55% 45%;
+
+    --sidebar-background: 210 11% 10%;
+    --sidebar-foreground: 210 20% 96%;
+    --sidebar-primary: 152 55% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 152 30% 18%;
+    --sidebar-accent-foreground: 152 55% 70%;
+    --sidebar-border: 210 11% 20%;
+    --sidebar-ring: 152 55% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer utilities {
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+  
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+/* 80mm thermal receipt — print & mobile Bluetooth printers */
+@media print {
+  @page {
+    size: 80mm auto;
+    margin: 0;
+  }
+
+  html,
+  body {
+    width: 80mm !important;
+    max-width: 80mm !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    background: #fff !important;
+    color: #000 !important;
+    -webkit-print-color-adjust: economy;
+    print-color-adjust: economy;
+  }
+
+  #root {
+    width: 100% !important;
+    max-width: 80mm !important;
+    min-height: auto !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    text-align: left !important;
+  }
+
+  .invoice-thermal,
+  .invoice-thermal * {
+    color: #000 !important;
+    border-color: #000 !important;
+    box-shadow: none !important;
+  }
+
+  .invoice-thermal {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  [data-sonner-toaster],
+  [data-radix-toast-viewport] {
+    display: none !important;
+  }
+}
