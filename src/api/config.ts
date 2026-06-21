@@ -1,6 +1,6 @@
 /**
  * API base URL.
- * - Dev: leave `VITE_API_URL` unset → same-origin `/api/...` (Vite proxy → localhost:3001).
+ * - Dev: leave `VITE_API_URL` unset → same-origin `/api/...` (Vite proxy → backend-v2-cwus.onrender.com).
  * - Production: `VITE_API_URL` is baked in at `vite build`. If missing (e.g. not set in Vercel),
  *   we fall back so deploys do not hit the frontend domain `/api/*` (404).
  */
